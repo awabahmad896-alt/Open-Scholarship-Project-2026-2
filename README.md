@@ -1,4 +1,4 @@
-# 🏛️ Frontiers of Memory: A Data Geography Analysis of Roman Imperial Heritage
+# Frontiers of Memory: A Data Geography Analysis of Roman Imperial Heritage
 
 ## Research Question
 How does the digital representation of the Roman Empire vary across modern national institutions, and which countries act as the primary digital custodians of this heritage?
