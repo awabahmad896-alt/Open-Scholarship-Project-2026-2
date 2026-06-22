@@ -11,7 +11,7 @@ The dataset is sourced from the Europeana API, utilizing the "rich" profile to e
 2. **Selection & Cleaning:** Flatten the JSON, handle unhashable lists, filter for key metadata columns (country, provider, completeness), and handle missing values.
 3. **Analysis & Visualisation:** Group data by `country` and `provider` to calculate volume and average completeness scores, and generate charts to compare top European providers.
 4. **Archiving:** Maintain version control via GitHub and ensure all notebooks are reproducible.
-##  Data Appendix & Variables (TIER Section 5)
+##  Data Appendix & Variables
 The optimized target dataset consists of 47,157 rows and 9 core columns selected to fit within strict resource thresholds:
 * `country`: Modern nation-state hosting the data provider.
 * `dataProvider`: Holding institution/museum name.
