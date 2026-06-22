@@ -26,6 +26,7 @@ Open-Scholarship-Project-2026-2/
 ├── notebooks/
 │   └── 01_reproducible_workflow.ipynb   # Main notebook (run top to bottom)
 └── README.md
+
 Workflow
 1. Repository Exploration
 The Europeana platform (https://www.europeana.eu) was identified as the primary open heritage repository for this project. Europeana aggregates digitised cultural heritage objects from European institutions and provides open API access with structured metadata.
