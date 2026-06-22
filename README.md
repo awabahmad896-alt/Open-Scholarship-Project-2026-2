@@ -19,13 +19,13 @@ The dataset is sourced from the Europeana API (https://api.europeana.eu), utiliz
 ## Repository Structure
 
 * **Open-Scholarship-Project-2026-2/** (Root Directory)
-    * 📂 **data/**
-        * 📁 **raw/** — Raw CSV as downloaded from the Europeana API, unchanged
-        * 📁 **processed/** — Cleaned and enriched CSV used for analysis
-    * 📂 **notebooks/**
-        * 📜 **01_reproducible_workflow.ipynb** — Main notebook (run top to bottom)
-    * 📜 **requirements.txt** — Software environment dependencies layout
-    * 📜 **README.md** — Project documentation guide
+    * **data/**
+        * **raw/** — Raw CSV as downloaded from the Europeana API, unchanged
+        * **processed/** — Cleaned and enriched CSV used for analysis
+    * **notebooks/**
+        * **01_reproducible_workflow.ipynb** — Main notebook (run top to bottom)
+    * **requirements.txt** — Software environment dependencies layout
+    * **README.md** — Project documentation guide
 
 ---
 
