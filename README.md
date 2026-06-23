@@ -60,6 +60,20 @@ Raw data was not modified; all transformations were applied in the notebook and 
 ### 7. Analysis & Interpretation
 Records were grouped by country and provider to compare digital custodianship patterns. Visualisations show which nations and institutions contribute the most records and which have the highest average metadata completeness. Initial interpretation suggests significant concentration among a small number of Western European providers, with metadata quality varying considerably across countries.
 
+
+## Analysis & Visualisation
+
+The cleaned dataset was grouped by `country` and `dataProvider` to calculate total record volume and average metadata completeness per institution. Bar charts were produced to compare the top European providers by record count and by average completeness score. These visualisations reveal which countries dominate the digital representation of Roman Imperial heritage and whether high-volume providers also maintain high metadata quality.
+
+## How to Run
+
+To regenerate the entire project, run the main notebook from top to bottom:
+
+1. `notebooks/01_reproducible_workflow.ipynb` — Queries the Europeana API (saves to `data/raw/`), flattens/cleans the data (saves to `data/processed/`), and produces grouped summaries and charts.
+
+To set up the environment:
+`pip install -r requirements.txt`
+
 ---
 
 ## Data Appendix & Variables
@@ -129,3 +143,10 @@ No OS-specific assumptions. Tested on Python 3.10+.
 * **Implementation:** AI was used strictly as a technical coding partner to handle JSON schema flattening logic, column memory optimisations, and pagination loop error handling. No historical analysis, target variable definitions, or interpretations were machine-generated.
 * **Risks considered:** AI-generated code was reviewed manually before use. No AI output was accepted without verification against the actual data structure.
 * **Prompt example:** "Act as a senior pandas data engineer. Optimise a cursor-pagination loop to extract 47k nested records, truncate sparse object schemas from 631 down to 9 target columns, and output a memory-safe dataframe under 25MB."
+
+## Limitations
+
+- **Coverage bias:** The dataset only includes institutions that contribute to Europeana. Many important holders of Roman Imperial heritage (especially outside Western Europe) are absent.  
+- **Search term bias:** Results depend entirely on the keyword "Roman Empire" appearing in Europeana metadata. Objects described using regional or non-English terms may be missed.  
+- **Completeness score:** The `completeness` metric is Europeana's internal measure and does not reflect scholarly or archival quality — only metadata field population.  
+- **Temporal scope:** The `year` field is sparsely populated and inconsistently formatted across providers, limiting temporal analysis.
