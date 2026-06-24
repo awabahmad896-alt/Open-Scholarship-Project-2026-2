@@ -14,6 +14,13 @@ How does the digital representation of the Roman Empire vary across modern natio
 
 The dataset is sourced from the Europeana API (https://api.europeana.eu), utilizing the "rich" profile to extract extensive metadata regarding cultural heritage objects tagged with "Roman Empire". The data covers records contributed by European national and regional institutions with no fixed time restriction on the objects themselves. Access was obtained programmatically via the Europeana REST API using cursor-based pagination. The dataset is subject to Europeana's terms of use; individual records may carry varying licenses depending on the contributing institution (see https://www.europeana.eu/en/rights).
 
+# Open Scholarship Project 2026
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20836645.svg)](https://doi.org/10.5281/zenodo.20836645)
+
+## Dataset
+The cleaned dataset used for this analysis is permanently archived on Zenodo and can be accessed via the DOI badge above.
+
 ---
 
 ## Repository Structure
