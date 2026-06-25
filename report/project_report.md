@@ -28,7 +28,7 @@ During this step, the code also creates two new, helpful columns:
 ### 3.2 Average Quality: Quantity vs. Quality
 ![Completeness Analysis](../outputs/02_completeness_by_country.png)
 
-*Observation:* Having the most records does not mean having the best records. This chart shows the average "completeness" score for different countries. Often, the countries that upload the highest volume of items have very low average scores. On the other hand, some countries that upload fewer items have nearly perfect scores. This suggests some museums focus on carefully detailing a few items, while others just mass-upload files with empty information boxes.
+*Observation:* Having the most records does not mean having the best records. This chart shows the average "completeness" score for different countries. Often, the countries that upload the highest volume of items have very low average scores. On the other hand, some countries that upload fewer items have nearly perfect scores. This suggests some museums focus on carefully detailing a few items, while others just mass upload files with empty information boxes.
 
 ### 3.3 Media Types: Mostly Just Pictures
 ![Media Type Analysis](../outputs/03_media_type_by_country.png)
@@ -48,4 +48,4 @@ It is important to know the limits of this data. Because we are looking at how m
 * **The "Year" Problem:** The `year` column is very messy. Instead of listing the actual historical age of the artifact (like 100 AD), many museums accidentally typed in the year they took the digital photo or uploaded the file (like 2006). Because of this, we cannot use the data to sort artifacts by historical time periods.
 
 ## 5. Conclusion
-This project successfully maps out who controls the digital memory of the Roman Empire on Europeana. The data proves that online historical archives are deeply affected by the habits of the museums that use them. There is a clear divide between mass-digitization (uploading thousands of poorly labeled images) and careful curation (uploading fewer, but highly detailed records). Ultimately, the quality of our digital history depends entirely on the humans typing in the metadata.
+This project maps out who controls the digital memory of the Roman Empire on Europeana. The data proves that online historical archives are deeply affected by the habits of the museums that use them. There is a clear divide between mass-digitization (uploading thousands of poorly labeled images) and careful curation (uploading fewer, but highly detailed records). Ultimately, the quality of our digital history depends entirely on the humans typing in the metadata.
