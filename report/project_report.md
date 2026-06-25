@@ -1,7 +1,7 @@
 # Frontiers of Memory: A Data Geography Analysis of Roman Imperial Heritage
 
 ## 1. Introduction
-When museums and libraries put their historical artifacts online, the result is rarely perfectly balanced. This project looks at how the Roman Empire is digitally remembered and preserved today. By looking at data from Europeana—a massive European online cultural heritage platform—this project asks a simple question: Which modern countries and museums hold the most digital records of the Roman Empire, and how good is the information they provide? 
+When museums and libraries put their historical artifacts online, the result is rarely perfectly balanced. This project looks at how the Roman Empire is digitally remembered and preserved today. By looking at data from Europeana—a massive European online cultural heritage platform, this project asks a simple question: Which modern countries and museums hold the most digital records of the Roman Empire, and how good is the information they provide? 
 
 By analyzing this data, we can see clear patterns in which countries have the resources to digitize their history and how much effort they put into adding detailed descriptions to those files.
 
