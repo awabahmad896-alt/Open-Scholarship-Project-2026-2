@@ -1,31 +1,43 @@
 # Frontiers of Memory: A Data Geography Analysis of Roman Imperial Heritage
 
-This project analyses how the digital representation of the Roman Empire varies across modern national institutions, using metadata harvested from the Europeana open heritage platform. The central research question is: **which countries act as the primary digital custodians of Roman Imperial heritage, and how does metadata quality differ between them?**
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20836645.svg)](https://doi.org/10.5281/zenodo.20836645)
+
+**Open Scholarship Project 2026**
+
+This project analyses how the digital representation of the Roman Empire varies across modern national institutions, using metadata harvested from the Europeana open heritage platform. 
 
 ---
 
 ## Research Question
 
-How does the digital representation of the Roman Empire vary across modern national institutions, and which countries act as the primary digital custodians of this heritage?
-
----
-
-## Dataset
-
-The dataset is sourced from the Europeana API (https://api.europeana.eu), utilizing the "rich" profile to extract extensive metadata regarding cultural heritage objects tagged with "Roman Empire". The data covers records contributed by European national and regional institutions with no fixed time restriction on the objects themselves. Access was obtained programmatically via the Europeana REST API using cursor-based pagination. The dataset is subject to Europeana's terms of use; individual records may carry varying licenses depending on the contributing institution (see https://www.europeana.eu/en/rights).
+**How does the digital representation of the Roman Empire vary across modern national institutions, and which countries act as the primary digital custodians of this heritage?**
 
 ---
 
 ## Repository Structure
 
-* **Open-Scholarship-Project-2026-2/** (Root Directory)
-    * **data/**
-        * **raw/** — Raw CSV as downloaded from the Europeana API, unchanged
-        * **processed/** — Cleaned and enriched CSV used for analysis
-    * **notebooks/**
-        * **01_reproducible_workflow.ipynb** — Main notebook (run top to bottom)
-    * **requirements.txt** — Software environment dependencies layout
-    * **README.md** — Project documentation guide
+* **`data/`** 
+  * `raw/` — Raw CSV as downloaded from the Europeana API, unchanged.
+  * `processed/` — Cleaned and enriched CSV used for analysis.
+* **`docs/`** — Added rules to block hidden Jupyter checkpoint files.
+* **`notebooks/`** 
+  * `01_reproducible_workflow.ipynb` — Main notebook (run top to bottom).
+* **`outputs/`** — Saved analysis visualisations and charts.
+* **`report/`** 
+  * `project_report.md` — Project report documentation.
+* **`.gitignore`** — Rules for Git to ignore local background files.
+* **`README.md`** — Project documentation guide.
+* **`requirements.txt`** — Software environment dependencies layout.
+
+---
+
+## Dataset & Licensing
+
+The dataset is sourced from the [Europeana API](https://api.europeana.eu), utilizing the "rich" profile to extract extensive metadata regarding cultural heritage objects tagged with "Roman Empire". The data covers records contributed by European national and regional institutions with no fixed time restriction on the objects themselves. 
+
+**Licensing & Access:** The dataset is subject to Europeana's terms of use; individual records may carry varying licenses depending on the contributing institution (see [Europeana Rights](https://www.europeana.eu/en/rights)). Access was obtained programmatically via the REST API using cursor-based pagination. 
+
+The cleaned dataset used for this analysis is permanently archived on Zenodo and can be accessed via the DOI badge above.
 
 ---
 
@@ -34,51 +46,22 @@ The dataset is sourced from the Europeana API (https://api.europeana.eu), utiliz
 ### 1. Repository Exploration
 The Europeana platform (https://www.europeana.eu) was identified as the primary open heritage repository for this project. Europeana aggregates digitised cultural heritage objects from European institutions and provides open API access with structured metadata.
 
-### 2. Dataset Collection
-The Europeana REST API was queried with the search term "Roman Empire" using the "rich" metadata profile. A cursor-based pagination loop was used to extract all available records. The raw response was saved as a CSV to `data/raw/`. After evaluating coverage and metadata quality, the dataset was narrowed to 47,157 records with 9 usable columns, reducing the original 631-column schema.
+### 2. Research Questions & Data Mapping
+The dataset's `country`, `dataProvider`, and `completeness` fields directly address the research question by allowing a direct comparison of record volume and metadata quality across contributing nations and institutions.
 
-### 3. Research Questions
-The dataset's `country`, `dataProvider`, and `completeness` fields directly address the research question by allowing comparison of record volume and metadata quality across contributing nations and institutions.
+### 3. Dataset Collection
+The Europeana REST API was queried with the search term "Roman Empire". A cursor-based pagination loop was used to extract all available records to `data/raw/`. After evaluating coverage, the dataset was narrowed to 47,157 records with 9 usable columns, significantly reducing the original 631-column schema.
 
 ### 4. Workflow Plan
-* **Data Access:** Query the Europeana REST API and save raw CSV to `data/raw/`.
-* **Selection & Cleaning:** Flatten the data, handle unhashable list-type fields, filter to 9 key columns, handle missing values, and save the result to `data/processed/`.
-* **Enrichment:** Engineer a `quality_category` variable by mapping `completeness` scores (0–10) to categorical tiers (low / medium / high). Shorten titles to `title_short` for memory efficiency.
-* **Analysis & Visualisation:** Group by `country` and `dataProvider` to calculate record volume and average completeness. Generate bar charts comparing top European providers.
-* **Archiving:** Maintain version control via GitHub.
-
-### 5. AI Implementation
-See *Generative AI Use Declaration* below.
-
-### 6. Enrichment
-Two new variables were engineered during processing:
-* `quality_category`: derived from `completeness` by binning scores into low (0–3), medium (4–6), and high (7–10) tiers.
-* `title_short`: a truncated version of the original title field, created to reduce memory usage.
-
-Raw data was not modified; all transformations were applied in the notebook and saved to `data/processed/`.
-
-### 7. Analysis & Interpretation
-Records were grouped by country and provider to compare digital custodianship patterns. Visualisations show which nations and institutions contribute the most records and which have the highest average metadata completeness. Initial interpretation suggests significant concentration among a small number of Western European providers, with metadata quality varying considerably across countries.
-
-
-## Analysis & Visualisation
-
-The cleaned dataset was grouped by `country` and `dataProvider` to calculate total record volume and average metadata completeness per institution. Bar charts were produced to compare the top European providers by record count and by average completeness score. These visualisations reveal which countries dominate the digital representation of Roman Imperial heritage and whether high-volume providers also maintain high metadata quality.
-
-## How to Run
-
-To regenerate the entire project, run the main notebook from top to bottom:
-
-1. `notebooks/01_reproducible_workflow.ipynb` — Queries the Europeana API (saves to `data/raw/`), flattens/cleans the data (saves to `data/processed/`), and produces grouped summaries and charts.
-
-To set up the environment:
-`pip install -r requirements.txt`
+* **Selection & Cleaning:** Flatten the data, handle unhashable list-type fields, filter key columns, handle missing values, and save to `data/processed/`.
+* **Enrichment:** Engineer a `quality_category` variable by mapping `completeness` scores (0–10) to categorical tiers (low/medium/high). Shorten titles to `title_short` for memory efficiency. Raw data was never modified; all transformations happen in the notebook.
+* **Analysis:** Group by `country` and `dataProvider` to calculate record volume and average completeness. Generate comparative bar charts.
 
 ---
 
-## Data Appendix & Variables
+## Data Dictionary
 
-The processed dataset consists of 47,157 rows and 9 columns:
+The processed dataset (`data/processed/`) consists of 47,157 rows and 9 columns:
 
 | Variable | Description | Values / Units |
 |---|---|---|
@@ -88,8 +71,8 @@ The processed dataset consists of 47,157 rows and 9 columns:
 | `type` | Object classification | `TEXT`, `IMAGE`, `VIDEO`, `SOUND`, `3D` |
 | `completeness` | Metadata richness score assigned by Europeana | Integer scale 0–10 |
 | `quality_category` | Engineered tier based on completeness score | `low` (0–3), `medium` (4–6), `high` (7–10) |
-| `year` | Temporal era indicator from metadata | Year or era string |
-| `title_short` | Truncated record title for memory efficiency | String (engineered from original title field) |
+| `year` | Ingestion, digitization, or publication year provided by the museum | Year string (e.g., `2006`) |
+| `title_short` | Truncated record title for memory efficiency | String |
 | `score` | Europeana query relevance ranking at ingestion | Float |
 
 ---
@@ -97,44 +80,36 @@ The processed dataset consists of 47,157 rows and 9 columns:
 ## Metadata Guide
 
 * **Source:** Europeana (https://api.europeana.eu)
-* **Collection:** Objects tagged with the query term "Roman Empire" via the REST API, "rich" profile
-* **Coverage:** European cultural heritage institutions; no fixed date range on the objects; records collected in 2026
-* **Geographical scope:** European national and regional institutions
-* **Main entities represented:** Digitised cultural heritage objects (texts, images, artefacts) associated with the Roman Empire
-* **Method of access:** Europeana REST API, cursor-based pagination, programmatic download
-* **License / terms:** Europeana terms of use apply; see https://www.europeana.eu/en/rights. Individual records carry institution-specific licenses.
-* **Ethical considerations:** The dataset consists of institutional metadata about historical objects. No personal data is included. The category "Roman Empire" is a curatorial label applied by contributing institutions and may reflect particular historiographical traditions in how Roman heritage is framed and preserved.
+* **Collection:** Objects tagged with "Roman Empire" via the REST API, "rich" profile.
+* **Coverage:** European cultural heritage institutions; collected in 2026.
+* **Geographical scope:** European national and regional institutions.
+* **Entities represented:** Digitised cultural heritage objects (texts, images, artefacts) associated with the Roman Empire.
+* **Method of access:** Programmatic download via REST API and cursor-based pagination.
+* **Ethical considerations:** The dataset consists of institutional metadata about historical objects. No personal data is included. "Roman Empire" is a curatorial label applied by contributing institutions and reflects specific historiographical traditions.
 
 ---
 
 ## Environment & Reproducibility
 
 **Language:** Python 3  
-**Main tools:** Jupyter Notebook, pandas, requests, matplotlib, seaborn
+**Main tools:** Jupyter Notebook, pandas, requests, matplotlib, seaborn  
 
-**Dependencies** (also listed in `requirements.txt`):
-* requests
-* pandas
-* matplotlib
-* seaborn
-* jupyter
+To regenerate the entire project, run the main notebook from top to bottom. No OS-specific assumptions; tested on Python 3.10+.
 
-To reproduce:
 1. Install dependencies: `pip install -r requirements.txt`
 2. Open `notebooks/01_reproducible_workflow.ipynb`
-3. Run all cells from top to bottom
-
-No OS-specific assumptions. Tested on Python 3.10+.
+3. Run all cells from top to bottom. It will query the API, clean the data, and produce the visualisations.
 
 ---
 
 ## Ethics & Limitations
 
-* The dataset is derived from institutional metadata and contains no personal or sensitive data.
-* Records are limited to what Europeana member institutions have chosen to digitise and tag. This introduces selection bias: wealthier or more digitally active institutions are likely overrepresented.
-* The search term "Roman Empire" is a curatorial label; coverage depends on how individual institutions have indexed their collections, which varies.
-* Missing values in `year`, `language`, and `type` fields were present in a portion of records and were retained or dropped depending on the analysis step (documented in the notebook).
-* This analysis reflects the state of Europeana's holdings at the time of data collection (2026) and may not generalise to the full landscape of Roman heritage digitisation globally.
+* **Coverage bias:** The dataset only includes institutions that contribute to Europeana. Many important holders of Roman Imperial heritage (especially outside Western Europe, or those lacking digital infrastructure) are absent, meaning wealthier institutions are overrepresented.
+* **Search term bias:** Results depend entirely on the keyword "Roman Empire" appearing in the metadata. Objects described using regional, non-English, or highly specific terms may be missed entirely.
+* **Completeness score:** The `completeness` metric is Europeana's internal measure. It does not reflect scholarly or archival quality, only how many metadata fields were populated.
+* **Temporal scope:** The `year` field is sparsely populated and inconsistently formatted. Many institutions input their digitization or publication year rather than the object's historical era, limiting temporal analysis.
+* **Missing values:** Missing values in `year`, `language`, and `type` fields were present and retained or dropped depending on the specific analysis step (documented in the code).
+* **Snapshot in time:** This analysis reflects the state of Europeana's holdings at the time of data collection (2026) and may not generalise to the global landscape of Roman heritage digitisation.
 
 ---
 
@@ -142,11 +117,4 @@ No OS-specific assumptions. Tested on Python 3.10+.
 
 * **Implementation:** AI was used strictly as a technical coding partner to handle JSON schema flattening logic, column memory optimisations, and pagination loop error handling. No historical analysis, target variable definitions, or interpretations were machine-generated.
 * **Risks considered:** AI-generated code was reviewed manually before use. No AI output was accepted without verification against the actual data structure.
-* **Prompt example:** "Act as a senior pandas data engineer. Optimise a cursor-pagination loop to extract 47k nested records, truncate sparse object schemas from 631 down to 9 target columns, and output a memory-safe dataframe under 25MB."
-
-## Limitations
-
-- **Coverage bias:** The dataset only includes institutions that contribute to Europeana. Many important holders of Roman Imperial heritage (especially outside Western Europe) are absent.  
-- **Search term bias:** Results depend entirely on the keyword "Roman Empire" appearing in Europeana metadata. Objects described using regional or non-English terms may be missed.  
-- **Completeness score:** The `completeness` metric is Europeana's internal measure and does not reflect scholarly or archival quality — only metadata field population.  
-- **Temporal scope:** The `year` field is sparsely populated and inconsistently formatted across providers, limiting temporal analysis.
+* **Prompt example:** *"Act as a senior pandas data engineer. Optimise a cursor-pagination loop to extract 47k nested records, truncate sparse object schemas from 631 down to 9 target columns, and output a memory-safe dataframe under 25MB."*
